@@ -1,0 +1,232 @@
+/* frontend/src/App.css */
+:root {
+  --primary: #2e7d32; /* Verde Bosque */
+  --secondary: #ff8f00; /* Naranja Mango */
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-dark: #333;
+  --text-light: #777;
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.header h1 {
+  color: var(--primary);
+  margin: 0;
+  font-size: 2.5rem;
+}
+.header p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+/* Formulario */
+.form-card {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: flex-end;
+  border-left: 6px solid var(--primary);
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Importante para padding */
+  transition: border-color 0.3s;
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  height: 45px;
+}
+
+.btn-primary:hover {
+  background: #1b5e20;
+  transform: translateY(-2px);
+}
+
+/* Grid de Tarjetas */
+.grid-lotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.card-lote {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+  position: relative;
+  transition: transform 0.2s;
+  border-top: 5px solid #ddd;
+}
+
+.card-lote:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+/* Estados Visuales (Bordes Superiores) */
+.status-cosecha { border-top-color: #9e9e9e; }
+.status-proceso { border-top-color: #29b6f6; }
+.status-entregado { border-top-color: #66bb6a; }
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* TIMELINE (Línea de tiempo visual) */
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 30px 0;
+}
+
+/* La línea gris de fondo */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.step {
+  z-index: 2;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ccc;
+  transition: all 0.3s;
+}
+
+.step.active {
+  border-color: var(--primary);
+  background: #e8f5e9;
+  color: var(--primary);
+  transform: scale(1.1);
+}
+
+.step.completed {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* Botones de acción */
+.card-actions {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.btn-action {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-process {
+  background: #e1f5fe;
+  color: #0288d1;
+}
+.btn-process:hover { background: #b3e5fc; }
+
+.btn-ship {
+  background: #fff3e0;
+  color: #f57c00;
+}
+.btn-ship:hover { background: #ffe0b2; }
+
+.details {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 10px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 6px;
+}
